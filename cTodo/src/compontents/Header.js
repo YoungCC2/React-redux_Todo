@@ -1,13 +1,13 @@
 import React, { PropTypes, Component } from 'react'
 import TodoTextInput from './TodoTextInput'
 
-export default class Header extends Component {  //es6组建写法
+export default class Header extends Component { 
   static propTypes = {
-    addTodo:PropTypes.func.isRequired
+    addTodo: PropTypes.func.isRequired
   }
 
   handleSave = text => {
-    if (text.length > 0) {
+    if (text.length !== 0) {
       this.props.addTodo(text)
     }
   }
@@ -17,7 +17,7 @@ export default class Header extends Component {  //es6组建写法
       <header className="header">
         <h1>todos</h1>
         <TodoTextInput newTodo
-                       onSave={this.handleSave} //添加事项
+                       onSave={this.handleSave} 
                        placeholder="What needs to be done?" />
       </header>
     )

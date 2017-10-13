@@ -1,5 +1,5 @@
 import React,{Component,PropTypes} from 'react'
-// import classnames from 'classnames'
+import classnames from 'classnames'
 export default class Header extends Component{
     static propTypes = {
         text:PropTypes.string,
@@ -32,15 +32,14 @@ export default class Header extends Component{
 
 
     render(){
-        return(
-            <input type="text"
-                    className="new-todo"
-                    placeholder={this.props.placeholder}
-                    value = {this.state.text}
-                    onKeyDown = {this.handleSubmit}
-                    onChange={this.handleChange}
-                    onBlur = {this.handleBlur}
-            />
-        )
+        return (<input
+            type="text"
+            className={classnames({edit: this.props.editing,
+                 'new-todo': this.props.newTodo})}
+            placeholder={this.props.placeholder}
+            value={this.state.text}
+            onKeyDown={this.handleSubmit}
+            onChange={this.handleChange}
+            onBlur={this.handleBlur}/>)
     }
 }
